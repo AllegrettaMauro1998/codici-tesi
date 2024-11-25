@@ -6,24 +6,24 @@ import java.nio.charset.StandardCharsets;
 public class main {
 
     public static void main(String[] args) {
-        // Specifica il percorso della cartella da esplorare
+        // Specifico il percorso della cartella da esplorare
         File cartella = new File("../" + args[0]);
         esploraCartella(cartella);
     }
 
     public static void esploraCartella(File principale) {
-        // Definisci i nomi dei file CSV
+        // Definisco i nomi dei file CSV
         String csvFileName = "annotazioni_cartelle.csv";
         String csvFile2Name = "annotazioni_immagini.csv";
         
-        // Ottieni il percorso assoluto della cartella principale
+        // Ottiengo il percorso assoluto della cartella principale
         String percorso = principale.getAbsolutePath(); 
         
-        // Costruisci i percorsi completi per i file CSV
+        // Costruisco i percorsi completi per i file CSV
         String csvFile = percorso + File.separator + csvFileName;
         String csvFile2 = percorso + File.separator + csvFile2Name;
 
-        // Ottieni i file nella cartella principale
+        // Ottiengo i file nella cartella principale
         File[] filescartella = principale.listFiles();
         
         if (filescartella == null) {
@@ -32,7 +32,7 @@ public class main {
             try (FileWriter scrittorecartella = new FileWriter(csvFile, StandardCharsets.UTF_8);
                  FileWriter scrittoreimmagini = new FileWriter(csvFile2, StandardCharsets.UTF_8)) {
 
-                // Scrive l'intestazione nei CSV
+                // L'intestazione nei CSV
                 scrittorecartella.append("Identificativo;N. foto;N. profilo destro;N. profilo sinistro;Note\n");
                 scrittoreimmagini.append("Identificativo;Nome_immagine;Data\n");
 
@@ -44,17 +44,17 @@ public class main {
                         int imm_sinistra = 0;
                         StringBuilder note = new StringBuilder();
 
-                        // Esplora i file all'interno della sottocartella
+                        // Esploro i file all'interno della sottocartella
                         for (File file : cartella.listFiles()) {
                             if (!file.isDirectory()) {
                                 conta_immagini++;
                                 String nome_imm = file.getName();
 
-                                // Scrivi nei CSV delle immagini
+                                // Scrivo nei CSV delle immagini
                                 scrittoreimmagini.append(Nomecartella + ";" + nome_imm + ";" + nome_imm.substring(0, 4) + "/" +
                                         nome_imm.substring(5, 6) + "/" + nome_imm.substring(7, 8) + "\n");
 
-                                // Conta immagini a sinistra e destra
+                                // Conteggio immagini per lato
                                 if (nome_imm.contains("L")) {
                                     imm_sinistra++;
                                 } else {
@@ -76,7 +76,7 @@ public class main {
                             note.append("Foto insufficienti per identificazione dal lato sinistro");
                         }
 
-                        // Scrivi nel CSV delle cartelle, mantenendo tutto in una singola cella nella colonna Note
+                        // Scrivo nel CSV delle cartelle, mantenendo tutto in una singola cella nella colonna Note
                         scrittorecartella.append(Nomecartella + ";" + conta_immagini + ";" + imm_destro + ";" + imm_sinistra + ";" + "\"" + note.toString() + "\"" + "\n");
                     }
                 }
