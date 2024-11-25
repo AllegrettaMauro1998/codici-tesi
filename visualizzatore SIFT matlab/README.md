@@ -1,6 +1,6 @@
 # Visualizza i Keypoint SIFT
 
-Questo repository contiene la funzione MATLAB **`visualize_sift_vpts1(folder)`**, che visualizza i keypoint SIFT estratti da file `.mat` e li sovrappone sulle immagini corrispondenti. La funzione evidenzia anche le orientazioni e le dimensioni dei keypoint.
+Questo repository contiene la funzione MATLAB **`visualize_sift_vpts1(folder)`**, che visualizza i keypoint SIFT estratti da file `.mat` e li sovrappone sulle immagini corrispondenti. La funzione evidenzia anche le orientazioni e le dimensioni dei keypoint.La visualizzazione delle SIFT è stata successivamente incorporata direttamente nel programma di matching
 
 ---
 
