@@ -1,0 +1,5 @@
+﻿  interfacciaSPIR.cpp
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.41.34120\include\filesystem(12): warning STL4038: The contents of <filesystem> are available only with C++17 or later.
+C:\Users\utente\source\repos\interfacciaSPIR\interfacciaSPIR\interfacciaSPIR.cpp(137,24): warning C4244: 'inizializzazione': conversione da 'INT_PTR' a 'int'. Possibile perdita di dati.
+C:\Users\utente\source\repos\interfacciaSPIR\interfacciaSPIR\interfacciaSPIR.cpp(307,1): warning C4715: 'WndProc': non tutti i percorsi di controllo restituiscono un valore
+  interfacciaSPIR.vcxproj -> C:\Users\utente\source\repos\interfacciaSPIR\x64\Debug\interfacciaSPIR.exe
